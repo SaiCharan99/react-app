@@ -1,0 +1,18 @@
+{
+  "contacts": [
+    {
+      "name": "kalyan",
+      "email": "kalyan@gmail.com",
+      "phone": "9898989898",
+      "picture": "https://www.tollywood.net/wp-content/uploads/2019/12/Pawan-Kalyan-Effect-Balakrishna-stepped-out-on-a-positive-note.jpg",
+      "id": 1
+    },
+    {
+      "name": "rajini",
+      "email": "rajini@gmail.com",
+      "phone": "4344353525",
+      "picture": "https://cdn.telanganatoday.com/wp-content/uploads/2017/06/RAJINIKANTH.jpg",
+      "id": 2
+    }
+  ]
+}
