@@ -1,61 +1,18 @@
-import React, { Component } from 'react'
-import ReactDom from 'react-dom'
-import 'bootstrap/dist/css/bootstrap.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+// import App from './hooks/App-04';
+import App from './lazy/lazyApp';
+import reportWebVitals from './reportWebVitals';
 
-import ContactsList from './components/ContactsList'
-import ContactForm from './components/ContactForm';
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-import { applyMiddleware, createStore } from 'redux';
-import rootReducer from './reducers/root-reducer';
-// dont use this in production
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk'
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-
-
-const Home = () => {
-    return (
-        <div>
-            <h3>Welcome to Contacts Application</h3> <hr />
-        </div>
-    );
-}
-
-class App extends Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <Router>
-                    <div className="container">
-                        <h2 className="alert alert-info">React Redux Application </h2>
-                        <div className="row">
-                            <div className="col-md-5">
-                                <ul className="list-group">
-                                    <li className="list-group-item">
-                                        <Link to="/">HOME</Link>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <Link to="/add-new-contact">ADD CONTACT</Link>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <Link to="/view-contacts">VIEW CONTACTS</Link>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="col-md-7">
-                                <Route path="/" component={Home} exact={true} />
-                                <Route path="/add-new-contact" component={ContactForm} exact={true} />
-                                <Route path="/view-contacts" component={ContactsList} exact={true} />
-                            </div>
-
-                        </div>
-                    </div>
-                </Router>
-            </Provider>
-        );
-    }
-}
-ReactDom.render(<App />, document.getElementById("root"));
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
